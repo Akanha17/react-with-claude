@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import './GitHubCard.css'
 
 function GitHubCard() {
     const [userData, setUserData] = useState(null);
@@ -33,18 +34,32 @@ function GitHubCard() {
     }
 
     return (
-        <>
+        <div className='github-card-container'>
             <div className="input">
-                <input type='text' placeholder='Enter GitHub username' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
-                <button onClick={() => setUserName(searchInput)}>Search</button>
+                <input type='text' className="input-field" placeholder='Enter GitHub username' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
+                <button class="button" onClick={() => setUserName(searchInput)}>Search</button>
             </div>
             <div className="github-card">
                 <img src={userData.avatar_url} alt={`${userData.login}'s avatar`} />
                 <h2>{userData.name}</h2>
                 <p>{userData.bio}</p>
                 <a href={userData.html_url} target="_blank" rel="noopener noreferrer">View Profile</a>
+                <div className="stats">
+                <div className="stat">
+                    <h3>{userData.public_repos}</h3>
+                    <p>Repos</p>
+                </div>
+                <div className="stat">
+                    <h3>{userData.followers}</h3>
+                    <p>Followers</p>
+                </div>
+                <div className="stat">
+                    <h3>{userData.following}</h3>
+                    <p>Following</p>
+                </div>
             </div>
-        </>
+            </div>
+        </div>
     );
 }
 
