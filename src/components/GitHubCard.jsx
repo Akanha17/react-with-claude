@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import './GitHubCard.css'
 
 function GitHubCard() {
+    const { username } = useParams();
     const [userData, setUserData] = useState(null);
-    const [userName, setUserName] = useState('Akanha17');
+    const [userName, setUserName] = useState(username || 'Akanha17');
     const [searchInput, setSearchInput] = useState('');
-    
+
     useEffect(() => {
         // fetch('https://api.github.com/users/octocat')
         //     .then(response => response.json())

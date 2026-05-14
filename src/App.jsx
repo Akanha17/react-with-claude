@@ -15,6 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/github" element={<GitHubCard />} />
           <Route path="/about" element={<About />} />
+          <Route path="/github/:username" element={<GitHubCard></GitHubCard>}></Route>
         </Routes>
       </BrowserRouter>
     </>
