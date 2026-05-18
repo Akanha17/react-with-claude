@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
+import { UserProvider } from './context/UserContext'
 
 function App() {
 
   return (
     <>
+    <UserProvider>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/github/:username" element={<GitHubCard></GitHubCard>}></Route>
         </Routes>
       </BrowserRouter>
+      </UserProvider>
     </>
   )
 }
