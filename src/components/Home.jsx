@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useContext } from "react"
 import { UserContext } from "../context/UserContext"
+import './Home.css'
 
 function Home(){
     const [input, setInput] = useState('')
@@ -11,11 +12,20 @@ function Home(){
         navigate(`/github/${input}`);
     }
     return (
-        <>
-            <h1>Github Tracker</h1>
-            <input type="text" placeholder="Enter GitHub username" value={input} onChange={(e) => setInput(e.target.value)} />
-            <button onClick={() => handleSearch(input)}>Search</button>
-        </>
+        <div className="home-container">
+        <h1>🐙 GitHub Tracker</h1>
+        <p>Search any GitHub profile instantly</p>
+        <div className="search-box">
+        <input 
+            type="text" 
+            placeholder="Enter GitHub username" 
+            value={input} 
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+        />
+        <button onClick={handleSearch}>Search</button>
+        </div>
+    </div>
     )
 }
 

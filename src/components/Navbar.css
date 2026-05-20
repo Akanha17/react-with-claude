@@ -1,0 +1,20 @@
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px 0;
+  border-bottom: 1px solid #30363d;
+  margin-bottom: 40px;
+}
+
+nav a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #8b5cf6;
+}
